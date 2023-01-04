@@ -1,0 +1,122 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color: aliceblue;">Welcome to Green Bay TOYOTA Warehouse</h1>
+        <div class="d-flex">
+            <!-- Button trigger modal -->
+            <button (click)="clickAddItem()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add item</button>
+        </div>
+    </div>
+    </nav>
+    
+    <table class="table mt-3">
+        <thead>
+          <!--<td scope="col">ID</td>-->
+          <td scope="col">Image</td>
+          <td scope="col">Name</td>
+          <td scope="col">Model</td>
+          <td scope="col">Year</td>
+          <td scope="col">Inventory Date</td>
+          <td scope="col">Amount</td>
+          <td scope="col">Price</td>
+          <td scope="col">Mileage</td>
+          <td scope="col">status</td>
+          <td scope="col">Color</td>
+          <td scope="col">Action Pane</td>
+        </thead>
+        
+        <tbody>
+          <ng-container *ngFor="let item of itemsData">
+          <tr class="table-active">
+            <!--<td>{{item.id}}</td>-->
+            <td>{{item.image}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.model}}</td>
+            <td>{{item.year}}</td>
+            <td>{{item.dateOfInventory}}</td>
+            <td>{{item.numberOfCars}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.mileage}}</td>
+            <td>{{item.status}}</td>
+            <td>{{item.color}}</td>
+            <td>
+                <button (click)="editItemById(item)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+                <button (click)="deleteItemById(item)" type="button" class="btn btn-danger mx-3">Delete</button>
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table> 
+      
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Item detail</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form [formGroup] ="formValue">
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Image</label>
+                        <input type="text" formControlName="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Name</label>
+                      <input formControlName="name" type="text" class="form-control" name="name">
+                    </div>
+                    <span *ngIf="formValue.controls['name'].dirty && formValue.hasError('required','name')" class="text-danger">*Name is required</span>
+                    
+                    <div class="mb-3">
+                      <label for="model" class="form-label">Model</label>
+                      <input type="text" formControlName="model"  class="form-control">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="year" class="form-label">Year</label>
+                      <input type="text" formControlName="year"  class="form-control">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="dateOfInventory" class="form-label">Date of Inventory</label>
+                      <input type="text" formControlName="dateOfInventory"  class="form-control" id="exampleInputPassword3">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="numberOfCars" class="form-label">Number of Cars</label>
+                      <input type="text" formControlName="numberOfCars"  class="form-control">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="price" class="form-label">Price</label>
+                      <input type="text" formControlName="price"  class="form-control">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="mileage" class="form-label">Mileage</label>
+                      <input type="text" formControlName="mileage"  class="form-control">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="status" class="form-label">Status</label>
+                      <input type="text" formControlName="status"  class="form-control">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="color" class="form-label">Color</label>
+                      <input type="text" formControlName="color"  class="form-control">
+                    </div>
+
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button id="cancel" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button [disabled]="formValue.invalid" *ngIf="showAdd" type="button" (click)="postItem()" class="btn btn-primary">Add</button>
+              <button *ngIf="showUpdate" type="button" (click)="updateItem()" class="btn btn-primary">Update</button>
+            </div>
+          </div>
+        </div>
+      </div>
