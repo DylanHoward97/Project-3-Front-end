@@ -20,7 +20,7 @@
     {
       "id": 1,
       "image": null,
-      "name": "TOYOTA",
+      "name": "TOYOTAh",
       "model": "Camry",
       "year": "2019",
       "dateOfInventory": "2022-11-07",
@@ -57,5 +57,4 @@
       "color": "White"
     }
   ]
-
 }
