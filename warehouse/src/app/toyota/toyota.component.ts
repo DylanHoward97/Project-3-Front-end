@@ -14,6 +14,7 @@ export class ToyotaComponent implements OnInit{
   itemsData!:any;
   showAdd!:boolean;
   showUpdate!:boolean;
+  editItem!:toyotaModel;
 
   constructor(private formBuilder: FormBuilder, private api: SharedService){}
   

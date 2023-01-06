@@ -1,6 +1,6 @@
 export class toyotaModel {
     id: number = 0;
-    image: any = ''
+    image: any = '';
     name: string = '';
     model: string = '';
     year: string = '';

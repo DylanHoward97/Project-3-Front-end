@@ -1,9 +1,9 @@
-<nav class="navbar navbar-light bg-primary">
+<nav id="bgxcolor" class="navbar navbar-light bg-primary">
     <div class="container-fluid">
-        <h1 style="color: aliceblue;">Welcome to Green Bay TOYOTA Warehouse</h1>
+        <h1 id="txtcolor">Welcome to Green Bay TOYOTA Warehouse</h1>
         <div class="d-flex">
             <!-- Button trigger modal -->
-            <button (click)="clickAddItem()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add item</button>
+            <button id="btnbgcolor" (click)="clickAddItem()" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add item</button>
         </div>
     </div>
     </nav>
@@ -39,8 +39,8 @@
             <td>{{item.status}}</td>
             <td>{{item.color}}</td>
             <td>
-                <button (click)="editItemById(item)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
-                <button (click)="deleteItemById(item)" type="button" class="btn btn-danger mx-3">Delete</button>
+                <button id="editcolor" (click)="editItemById(item)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-info">Edit</button>
+                <button id="deletecolor" (click)="deleteItemById(item)" type="button" class="btn btn-danger mx-3">Delete</button>
             </td>
           </tr>
         </ng-container>
