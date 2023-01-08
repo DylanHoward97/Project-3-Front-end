@@ -18,19 +18,6 @@
   },
   "TOYOTA": [
     {
-      "id": 1,
-      "image": null,
-      "name": "TOYOTA",
-      "model": "Camry",
-      "year": "2019",
-      "dateOfInventory": "2022-11-07",
-      "numberOfCars": "55",
-      "price": "24,000",
-      "mileage": "30,000",
-      "status": "Used",
-      "color": "White-blue"
-    },
-    {
       "id": 2,
       "image": null,
       "name": "TOYOTA",
@@ -45,16 +32,237 @@
     },
     {
       "id": 3,
-      "image": null,
-      "name": "TOYOTA",
+      "image": "fenue.genjang@gmail.com",
+      "model": " vbnmbc",
+      "year": "cvbnbc",
+      "dateOfInventory": "bnb",
+      "numberOfCars": "cbncv",
+      "price": "cncnc",
+      "mileage": null,
+      "status": "",
+      "color": ""
+    },
+    {
+      "id": 4,
+      "image": "fenue.genjang@gmail.com",
+      "model": "fxhgjnf",
+      "year": "fghjnhfgc",
+      "dateOfInventory": "cvhjnmhgc",
+      "numberOfCars": "cghjmg",
+      "price": "chvjmhc",
+      "mileage": "hcjkm",
+      "status": "ghcjmh",
+      "color": "hjm"
+    },
+    {
+      "id": 5,
+      "image": "hjkjhgv",
+      "model": "hgjkh",
+      "year": "hkjl,nhbkj",
+      "dateOfInventory": "nhbjk,l",
+      "numberOfCars": "hbjk,",
+      "price": "hjk,mjh",
+      "mileage": "jk,hj",
+      "status": "jk,j",
+      "color": "hjkh"
+    },
+    {
+      "id": 6,
+      "image": "fenue.genjang@gmail.com",
+      "model": "dxfhj",
+      "year": "fjh",
+      "dateOfInventory": "fjhg",
+      "numberOfCars": "fghjnf",
+      "price": "jvhfg",
+      "mileage": "fcjn",
+      "status": "fcj",
+      "color": "fcvjghn"
+    },
+    {
+      "id": 7,
+      "image": "gbvbhnfgc",
+      "model": "cvnbcgv",
+      "year": "ncgbhngb",
+      "dateOfInventory": "bnbcc",
+      "numberOfCars": "bcncvn",
+      "price": "cgng",
+      "mileage": "gcbhngbfc",
+      "status": "vcgjhn",
+      "color": "gnhjgcbhn"
+    }
+  ],
+  "Porsche": [
+    {
+      "id": 1,
+      "image": "",
+      "model": "Porsche",
+      "status": "Used",
+      "color": "White",
+      "price": "98,000",
+      "dateOfInventory": "2023-01-07",
+      "numberOfCars": "55",
+      "mileage": "30,000",
+      "year": "2019"
+    },
+    {
+      "id": 2,
+      "image": "",
       "model": "Camry",
-      "year": "2019",
+      "status": "Used",
+      "color": "White",
+      "price": 345345,
       "dateOfInventory": "2022-11-07",
       "numberOfCars": "55",
-      "price": "24,000",
       "mileage": "30,000",
+      "year": "2019"
+    },
+    {
+      "id": 3,
+      "image": "",
+      "model": "Camry",
       "status": "Used",
-      "color": "White"
+      "color": "White",
+      "price": "24,000",
+      "dateOfInventory": "2023-01-07",
+      "numberOfCars": "55",
+      "mileage": "30,000",
+      "year": "2019"
+    },
+    {
+      "id": 6,
+      "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.webtips.dev%2Fwebtips%2Fcss%2Fmake-table-columns-equal-width-with-css&psig=AOvVaw09YmBE_b56BwHdtzwuojqz&ust=1673206544728000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCPjzsp-atvwCFQAAAAAdAAAAABAE",
+      "model": "Camry",
+      "status": "New",
+      "color": "Black",
+      "price": "67000",
+      "dateOfInventory": "2023-01-07",
+      "numberOfCars": "45000",
+      "mileage": "10",
+      "year": "2023"
+    },
+    {
+      "id": 7,
+      "image": "",
+      "model": "Camry",
+      "status": "New",
+      "color": "Black",
+      "price": "45444",
+      "dateOfInventory": "2023-01-07",
+      "numberOfCars": "4567",
+      "mileage": 4654745678654,
+      "year": "2023"
+    },
+    {
+      "imageUrl": "Image Url",
+      "model": "Camry",
+      "status": "New",
+      "color": "White",
+      "price": 5646,
+      "dateOfInventory": "2023-01-07",
+      "numberOfCars": 45654,
+      "mileage": 456,
+      "year": 6546,
+      "id": 8
+    },
+    {
+      "imageUrl": "Image Url",
+      "model": "Camry",
+      "status": "New",
+      "color": "White",
+      "price": 5646,
+      "dateOfInventory": "2023-01-07",
+      "numberOfCars": 45654,
+      "mileage": 456,
+      "year": 6546,
+      "id": 9
+    }
+  ],
+  "Mercedes": [
+    {
+      "imageUrl": "Image Url",
+      "model": "Camry",
+      "status": "New",
+      "color": "White",
+      "price": 5646,
+      "dateOfInventory": "2023-01-07",
+      "numberOfCars": 45654,
+      "mileage": 456,
+      "year": 6546,
+      "id": 9
+    },
+    {
+      "id": 10,
+      "image": "fenue.genjang@gmail.com",
+      "model": "fghhfgd",
+      "year": "f",
+      "dateOfInventory": "f",
+      "numberOfCars": "f",
+      "price": "f",
+      "mileage": "f",
+      "status": "f",
+      "color": "f"
+    },
+    {
+      "id": 11,
+      "image": "fenue.genjang@gmail.com",
+      "model": "hgbvj",
+      "year": "vhjnhvg",
+      "dateOfInventory": "vjnvhbmnmnmjhvgnkm",
+      "numberOfCars": "fghfdhd",
+      "price": "dgfhfd",
+      "mileage": "gfhgf",
+      "status": "",
+      "color": ""
+    },
+    {
+      "id": 12,
+      "image": "fenue.genjang@gmail.com",
+      "model": "cfhgjn",
+      "year": "fhgj",
+      "dateOfInventory": "fvhgj",
+      "numberOfCars": "hjnm",
+      "price": "vghjm",
+      "mileage": "vghj",
+      "status": "vghj",
+      "color": "vhj"
+    },
+    {
+      "id": 13,
+      "image": "g",
+      "model": "g",
+      "year": "g",
+      "dateOfInventory": "g",
+      "numberOfCars": "g",
+      "price": "g",
+      "mileage": "g",
+      "status": "g",
+      "color": "g"
+    }
+  ],
+  "Honda": [
+    {
+      "id": 3,
+      "image": "fenue.genjang@gmail.com",
+      "model": "fgh",
+      "year": "fgh",
+      "dateOfInventory": "fgh",
+      "numberOfCars": "fghn",
+      "price": "cvhgn",
+      "mileage": "fghj",
+      "status": "fghj",
+      "color": "fgjhgf"
+    },
+    {
+      "id": 4,
+      "image": "fenue.genjang@gmail.com",
+      "model": "fdghgfd",
+      "year": "fghjfghj",
+      "dateOfInventory": "fgjh",
+      "numberOfCars": "fgjhfgh",
+      "price": "fgjfgh",
+      "mileage": "fgjnfgh",
+      "status": "fgnjfgh",
+      "color": "fgnjfhgj"
     }
   ]
 }

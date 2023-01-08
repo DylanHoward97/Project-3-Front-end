@@ -1,1 +1,218 @@
-<p>porsche works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color:white;">TOYOTA Warehouse</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+       <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+             <button class="nav-link" (click)="onOpenModal(null!, 'add')">Add Porsche <span class="sr-only">(current)</span></button>
+          </li>
+       </ul>
+       <form class="form-inline my-2 my-lg-0">
+          <input type="search" (ngModelChange)="searchPorsche(key.value)" #key="ngModel" ngModel
+           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search car..." required>
+       </form>
+    </div>
+  </nav>
+
+
+  <div class="container" id="main-container">
+    <div class="row">
+      <div *ngFor="let porsche of porsches" class="col-md-6 col-xl-3">
+         <div class="card m-b-30">
+            <div class="card-body row">
+               <div class="col-6">
+                  <a href=""><img src="{{porsche.image}}" alt="" class="img-fluid rounded-circle w-60"></a>
+               </div>
+            </div>
+            <tbody class="table-active">
+               <tr >
+                 <td>Model : {{porsche.model}}</td>
+                 <td>Inventory : {{porsche.dateOfInventory}}</td>
+               </tr>
+               <tr>
+                 <td>Status : {{porsche.status}}</td>
+                 <td>Amount : {{porsche.numberOfCars}}</td>
+               </tr>
+               <tr>
+                 <td>Color :  {{porsche.color}}</td>
+                 <td>Mileage : {{porsche.mileage}}</td>
+               </tr>
+               <tr>
+                 <td>Price : {{porsche.price}}</td>
+                 <td>Year: {{porsche.year}}</td>
+               </tr>
+             </tbody>
+             <div>
+               <div class="float-right btn-group btn-group-sm">
+                  <button (click)="onOpenModal(porsche, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i></button>
+                  <button (click)="onOpenModal(porsche, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></button>
+               </div>
+            </div>
+         </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Add Employee Modal -->
+<div class="modal fade" id="addPorscheModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+        <div class="modal-header">
+           <h5 class="modal-title" id="addEmployeeModalLabel">Add Porsche</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+           <form #addForm="ngForm" (ngSubmit)="onAddPorsche(addForm)">
+            <div class="form-group">
+               <label for="image">Image URL</label>
+               <input type="text" ngModel name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL" required>
+            </div>
+           <div class="form-group">
+              <label for="model">Model</label>
+              <input type="text" ngModel name="model" class="form-control" id="model" placeholder="Model" required>
+           </div>
+           <div class="form-group">
+              <label for="status">Status</label>
+              <input type="text" ngModel name="status" class="form-control" id="status" placeholder="Status" required>
+           </div>
+           <div class="form-group">
+              <label for="color">Color</label>
+              <input type="text" ngModel name="color" class="form-control" id="color" placeholder="color" required>
+           </div>
+           <div class="form-group">
+              <label for="price">Price</label>
+              <input type="number" ngModel name="price" class="form-control" id="price" placeholder="price" required>
+           </div>
+           <div class="form-group">
+              <label for="dateOfInventory">Inventory</label>
+              <input type="date" ngModel name="dateOfInventory" class="form-control" id="dateOfInventory" placeholder="inventory" required>
+           </div>
+           <div class="form-group">
+            <label for="numberOfCars">Amount</label>
+            <input type="number" ngModel name="numberOfCars" class="form-control" id="numberOfCars" placeholder="amount" required>
+           </div>
+           <div class="form-group">
+            <label for="mileage">Mileage</label>
+            <input type="number" ngModel name="mileage" class="form-control" id="mileage" placeholder="mileage" required>
+           </div>
+           <div class="form-group">
+            <label for="year">Year</label>
+            <input type="number" ngModel name="year" class="form-control" id="year" placeholder="year" required>
+           </div>
+           <div class="modal-footer">
+              <button type="button" id="add-porsche-form" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+           </div>
+           </form>
+        </div>
+     </div>
+   </div>
+   </div>
+
+  <!-- Edit Modal -->
+<div class="modal fade" id="updatePorscheModal" tabindex="-1" role="dialog" aria-labelledby="porscheEditModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="updatePorscheModalLabel">Edit Porsche {{editPorsche?.model}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form #editForm="ngForm">
+
+               <input type="hidden" ngModel="{{editPorsche?.id}}" name="id" class="form-control" id="id" placeholder="ID">
+
+               <div class="form-group">
+                  <label for="image">Image URL</label>
+                  <input type="text" ngModel="{{editPorsche?.image}}" name="image" class="form-control" id="image1" placeholder="Image URL">
+               </div>
+
+               <div class="form-group">
+                  <label for="model">Model</label>
+                  <input type="text" ngModel="{{editPorsche?.model}}" name="model" class="form-control" id="model1" aria-describedby="emailHelp" placeholder="Model">
+               </div>
+               
+               <div class="form-group">
+                  <label for="status">Status</label>
+                  <input type="text" ngModel="{{editPorsche?.status}}" name="status" class="form-control" id="status1" placeholder="Email">
+               </div>
+
+               <div class="form-group">
+                  <label for="color">Color</label>
+                  <input type="text" ngModel="{{editPorsche?.color}}" name="color" class="form-control" id="color1" placeholder="color">
+               </div>
+
+               <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="number" ngModel="{{editPorsche?.price}}" name="price" class="form-control" id="price1" placeholder="Price">
+               </div>
+
+               <div class="form-group">
+                  <label for="dateOfInventory">Inventory</label>
+                  <input type="date" ngModel="{{editPorsche?.dateOfInventory}}" name="dateOfInventory" class="form-control" id="dateOfInventory1" placeholder="Inventory">
+               </div>
+
+               <div class="form-group">
+                  <label for="numberOfCars">Amount</label>
+                  <input type="number" ngModel="{{editPorsche?.numberOfCars}}" name="numberOfCars" class="form-control" id="numberOfCars1" placeholder="Amount">
+               </div>
+
+               <div class="form-group">
+                  <label for="mileage">Mileage</label>
+                  <input type="number" ngModel="{{editPorsche?.mileage}}" name="mileage" class="form-control" id="mileage1" placeholder="Mileage">
+               </div>
+
+               <div class="form-group">
+                  <label for="year">Year</label>
+                  <input type="number" ngModel="{{editPorsche?.year}}" name="year" class="form-control" id="year1" placeholder="Year">
+               </div>
+               
+               <div class="modal-footer">
+                  <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                  <button (click)="onUpdatePorsche(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+               </div>
+
+            </form>
+         </div>
+      </div>
+   </div>
+ </div>
+
+ <!-- Delete Modal -->
+<div class="modal fade" id="deletePorscheModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="deleteModelLabel">Delete</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <p>Are you sure you want to delete {{deletePorsche?.model}}?</p>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+               <button (click)="onDeletePorsche(deletePorsche.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
+            </div>
+         </div>
+      </div>
+   </div>
+ </div>
+ 
+ <!-- Notification for no car -->
+ <div *ngIf="porsches?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+ <div class="alert alert-info" role="alert">
+   <h4 class="alert-heading">NO PORSCHE!</h4>
+   <p>No car is in Porsche inventory.</p>
+ </div>
+ </div>
+ 
+
+
