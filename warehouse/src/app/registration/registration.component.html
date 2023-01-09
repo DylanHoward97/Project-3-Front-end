@@ -11,14 +11,26 @@
 
                 <div class="form-outline mb-4">
                   <input formControlName="firstName" type="text" id="id_firstName" class="form-control form-control-lg" required>
-                  <label class="form-label" for="id_firstName">Your First Name</label>
+                  <label class="form-label" for="id_firstName">First Name</label>
                   <div *ngIf="firstName.touched && firstName.errors?.required" class="d-block invalid-feedback">Provide your first name.</div>
                 </div>
 
                 <div class="form-outline mb-4">
                   <input formControlName="lastName" type="text" id="id_lastName" class="form-control form-control-lg" required>
-                  <label class="form-label" for="id_lastName">Your Last Name</label>
+                  <label class="form-label" for="id_lastName">Last Name</label>
                   <div *ngIf="lastName.touched && lastName.errors?.required" class="d-block invalid-feedback">Provide your last name.</div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input formControlName="userName" type="text" id="id_userName" class="form-control form-control-lg" required>
+                  <label class="form-label" for="id_userName">User Name</label>
+                  <div *ngIf="userName.touched && userName.errors?.required" class="d-block invalid-feedback">Provide your user name.</div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input formControlName="email" type="text" id="id_email" class="form-control form-control-lg" required>
+                  <label class="form-label" for="id_email">email</label>
+                  <div *ngIf="email.touched && email.errors?.required" class="d-block invalid-feedback">Provide your email.</div>
                 </div>
 
                 <div class="form-outline mb-4">

@@ -23,6 +23,15 @@ export class RegistrationComponent implements OnInit {
   get lastName(): any {
     return this.registerForm.get('lastName');
   }
+
+  get userName(): any {
+    return this.registerForm.get('userName');
+  }
+
+  get email(): any {
+    return this.registerForm.get('email');
+  }
+
   get password(): any {
     return this.registerForm.get('password');
   }
