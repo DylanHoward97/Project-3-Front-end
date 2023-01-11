@@ -1,12 +1,12 @@
-export class Mercedes{
-    id: number=0;
-    image: any =''; 
-    model: string = '';
-    year: string ='';
-    dateOfInventory: string='';
-    numberOfCars: number =0;
-    price: number =0;
-    mileage: number=0;
-    status: string='';
-    color: string='';
+export interface Mercedes{
+    id: number;
+    image: string; 
+    model: string;
+    year: string;
+    dateOfInventory: string;
+    numberOfCars: number;
+    price: number;
+    mileage: number;
+    status: string;
+    color: string;
 }

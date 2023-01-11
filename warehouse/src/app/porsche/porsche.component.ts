@@ -13,7 +13,7 @@ import { SharedService } from '../shared.service';
 export class PorscheComponent implements OnInit {
 
    porsches!:Porsche[];
-   editPorsche?:Porsche;
+   editItem?:Porsche;
    deletePorsche!:Porsche;
 
    constructor (private sharedServices: SharedService){}
@@ -22,7 +22,10 @@ export class PorscheComponent implements OnInit {
     this.onGetPorsche()
    }
 
-   onGetPorsche(): void{
+   //not used.
+   
+
+   public onGetPorsche(): void{
      this.sharedServices.getPorsche().subscribe({
      next: (response: Porsche[]) => {this.porsches = response;},
      error: (error: HttpErrorResponse) => {alert(error.message)},
@@ -33,14 +36,15 @@ export class PorscheComponent implements OnInit {
    onAddPorsche(addForm:NgForm): void{
      document.getElementById('add-porsche')?.click();
      this.sharedServices.createPorsche(addForm.value).subscribe({
-     next: (response: Porsche) => {console.log(response); this.onGetPorsche(); addForm.reset},
+     next: (response: Porsche) => {console.log(response); this.onGetPorsche();addForm.resetForm() },
      error: (error: HttpErrorResponse) => {alert(error.message); addForm.reset},
      complete: () => console.log('Add transaction completed')
      });
     }
 
+
     onUpdatePorsche(porsche:Porsche): void{
-      this.sharedServices.updatePorsche(porsche).subscribe({ //porch.id need to be commented out.
+      this.sharedServices.updatePorsche(porsche,porsche.id).subscribe({ //porch.id need to be commented out.
       next: (response: Porsche) => {console.log(response); this.onGetPorsche()},
       error: (error: HttpErrorResponse) => {alert(error.message)},
       complete: () => console.log('Update transaction completed')
@@ -55,7 +59,7 @@ export class PorscheComponent implements OnInit {
       });
     }  
 
-    searchPorsche(key: string): void{
+    public searchPorsche(key: string): void{
       console.log(key);
       const results: Porsche[] = [];
       for(const porsche of this.porsches){
@@ -72,18 +76,18 @@ export class PorscheComponent implements OnInit {
       }
     }
 
-    onOpenModal(porsche:Porsche, mode: string){
+    public onOpenModal(porsche:Porsche, mode: string){
       const container = document.getElementById('main-container');
-      let button = document.createElement('button');
+      const button = document.createElement('button');
       button.type = 'button';
-      button.style.display = 'false';
+      button.style.display = 'none';
       button.setAttribute('data-toggle', 'modal');
       
       if(mode === 'add'){
         button.setAttribute('data-target', '#addPorscheModal');
       }
       if(mode === 'edit'){
-        this.editPorsche = porsche;
+        this.editItem = porsche;
         button.setAttribute('data-target', '#updatePorscheModal');
       }
       if(mode === 'delete'){
@@ -95,8 +99,5 @@ export class PorscheComponent implements OnInit {
       button.click();
     }
 
-    editItemById(){
-      this.porsches=this.porsches
-    }
 
 }
