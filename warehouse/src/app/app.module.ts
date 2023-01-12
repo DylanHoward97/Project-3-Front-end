@@ -11,11 +11,11 @@ import { MercedesComponent } from './mercedes/mercedes.component';
 import { FerrariComponent } from './ferrari/ferrari.component';
 import { HondaComponent } from './honda/honda.component';
 import { DodgeComponent } from './dodge/dodge.component';
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PorscheComponent } from './porsche/porsche.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { RegistrationComponent } from './registration/registration.component';
     HondaComponent,
     DodgeComponent,
     PorscheComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
