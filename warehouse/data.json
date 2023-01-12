@@ -23,11 +23,11 @@
       "model": " Toyota Prius",
       "status": "New",
       "color": "Black",
-      "price": 30000,
+      "price": "30000",
       "dateOfInventory": "2023-01-10",
-      "numberOfCars": 10,
-      "mileage": 0,
-      "year": 2022
+      "numberOfCars": 11,
+      "mileage": "0",
+      "year": "2022"
     },
     {
       "id": 4,
@@ -47,11 +47,11 @@
       "model": "Toyota Mirai",
       "status": "New",
       "color": "Gray",
-      "price": 38000,
+      "price": "38000",
       "dateOfInventory": "2023-01-03",
-      "numberOfCars": 4,
-      "mileage": 0,
-      "year": 2022
+      "numberOfCars": "9",
+      "mileage": 6,
+      "year": "2022"
     },
     {
       "id": 7,
@@ -125,7 +125,7 @@
       "dateOfInventory": "2023-01-07",
       "numberOfCars": 5,
       "mileage": 30000,
-      "year": "2019"
+      "year": 2019
     },
     {
       "id": 2,
@@ -446,6 +446,7 @@
   ],
   "Ferrari": [
     {
+      "id": 1,
       "image": "https://i.insider.com/559d893d6bb3f71c402cc025?width=1300&format=jpeg&auto=webp",
       "model": "LaFerrari",
       "status": "New",
@@ -454,8 +455,7 @@
       "dateOfInventory": "2023-01-02",
       "numberOfCars": 1,
       "mileage": 10000,
-      "year": 2022,
-      "id": 1
+      "year": 2022
     },
     {
       "id": 2,
@@ -573,11 +573,11 @@
       "model": "Dodge GT",
       "status": "New",
       "color": "Red",
-      "price": "36000",
+      "price": 36000,
       "dateOfInventory": "2023-01-10",
-      "numberOfCars": "5",
-      "mileage": "0",
-      "year": "2022"
+      "numberOfCars": 5,
+      "mileage": 0,
+      "year": 2022
     },
     {
       "id": 3,

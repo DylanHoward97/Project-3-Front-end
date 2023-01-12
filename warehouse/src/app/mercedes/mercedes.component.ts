@@ -12,7 +12,7 @@ import { SharedService } from '../shared.service';
 export class MercedesComponent implements OnInit{
   
   mercedesBenze!: Mercedes[];
-  editItem!:Mercedes;
+  editItem?:Mercedes;
   deleteMercedes!:Mercedes;
 
    constructor ( private sharedServices: SharedService){}

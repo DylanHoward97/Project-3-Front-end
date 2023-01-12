@@ -22,7 +22,7 @@ export class FerrariComponent implements OnInit{
 
    onGetFerrari(): void{
      this.sharedServices.getFerrari().subscribe({
-     next: (response: Ferrari[]) => {this.ferraris = response; this.totalPrice()},
+     next: (response: Ferrari[]) => {this.ferraris = response;},
      error: (error: HttpErrorResponse) => {alert(error.message)},
      complete: () => console.log('Get transaction completed')
      });
@@ -93,16 +93,16 @@ export class FerrariComponent implements OnInit{
       button.click();
     }
 
-  totalPrice(): number{
-    let total = 0;
-    this.ferraris.forEach(item =>{
-      total = item.numberOfCars * item.price;
+  // totalPrice(): number{
+  //   let total = 0;
+  //   this.ferraris.forEach(item =>{
+  //     total = item.numberOfCars * item.price;
 
-      // const output = document.getElementById('networth');
-      // output!.style.display = 'block';
-      // output!.innerHTML = total;
-    })
-    return total;
-  }
+  //     const output = document.getElementById('networth');
+  //     output!.style.display = 'block';
+  //     output!.innerHTML = total;
+  //   })
+  //   return total;
+  // }
 
 }

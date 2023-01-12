@@ -93,4 +93,16 @@ export class ToyotaComponent implements OnInit{
       
       button.click();
     }
+
+    
+    // calculateTotal():any{
+    //   let x =9;
+    //   let y = 9;
+    //   let m =x*y;
+    //   const numberOfItem = this.total.numberOfCars;
+    //   const price = this.total.price;
+    //   const myTotal = price * numberOfItem;
+    //   console.log(m);
+    // }
+    
 }

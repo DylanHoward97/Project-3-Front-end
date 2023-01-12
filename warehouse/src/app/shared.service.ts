@@ -8,6 +8,7 @@ import { Mercedes } from './mercedes/mercedes';
 import { Honda } from './honda/honda';
 import { Ferrari } from './ferrari/ferrari';
 import { Dodge } from './dodge/dodge';
+import { Registration } from './registration/registration';
 
 @Injectable({
   providedIn: 'root'
@@ -192,6 +193,19 @@ deleteDodge(dodgeId:number):Observable<void>{
  .pipe(map((res:any) => {
   return res;
 }))
+}
+
+//Registration Functions
+getUser():Observable<Registration[]>{
+  return this.http.get<Registration[]>(`${this.apiServerUrl}/Registration`)
+  .pipe(map((response:any)=>{return response}))
+}
+registerUser(user:Registration):Observable<Registration>{
+  return this.http.post<Registration>(`${this.apiServerUrl}/Registration`,user).pipe(map((response:any) =>{return response}))
+}
+
+updateUser(user:Registration, id: number):Observable<Registration>{
+  return this.http.put<Registration>(`${this.apiServerUrl}/Registration/`+id, user).pipe(map((response:any) =>{ return response}))
 }
   
 }
