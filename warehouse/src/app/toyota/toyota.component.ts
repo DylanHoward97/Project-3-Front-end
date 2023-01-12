@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
-import { FormBuilder, FormGroup, Validators }from '@angular/forms'
+import { HttpErrorResponse} from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 import { toyotaModel } from './toyota';
 import { SharedService } from '../shared.service';
 
@@ -9,113 +10,99 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./toyota.component.css']
 })
 export class ToyotaComponent implements OnInit{
-  formValue!: FormGroup;
-  itemsModuleObj: toyotaModel = new toyotaModel();
-  itemsData!:any;
-  showAdd!:boolean;
-  showUpdate!:boolean;
-  editItem!:toyotaModel;
-
-  constructor(private formBuilder: FormBuilder, private api: SharedService){}
   
-  ngOnInit(): void{
-    this.formValue = this.formBuilder.group({
-      id:[],
-      image: [''],
-      name: ['',Validators.required],
-      model: ['', Validators.required],
-      year: [ ,Validators.required],
-      dateOfInventory: ['',Validators.required],
-      numberOfCars: [,Validators.required],
-      price: [ ,Validators.required],
-      mileage: [ , Validators.required],
-      status: ['', Validators.required],
-      color: ['',Validators.required]
-    })
-      this.getAllItems();
-  }
+  toyotas!: toyotaModel[];
+  editItem?:toyotaModel;
+  deleteToyota!:toyotaModel;
 
-  clickAddItem(){
-    this.formValue.reset();
-    this.showAdd = true;
-    this.showUpdate = false;
-  }
+   constructor ( private sharedServices: SharedService){}
 
-  postItem(){
-    this.itemsModuleObj.id = this.formValue.value.id;
-    this.itemsModuleObj.image = this.formValue.value.image;
-    this.itemsModuleObj.name = this.formValue.value.name;
-    this.itemsModuleObj.model = this.formValue.value.model;
-    this.itemsModuleObj.year = this.formValue.value.year;
-    this.itemsModuleObj.dateOfInventory = this.formValue.value.dateOfInventory;
-    this.itemsModuleObj.numberOfCars = this.formValue.value.numberOfCars;
-    this.itemsModuleObj.price = this.formValue.value.price;
-    this.itemsModuleObj.mileage = this.formValue.value.mileage;
-    this.itemsModuleObj.status = this.formValue.value.status;
-    this.itemsModuleObj.color = this.formValue.value.color;
+   ngOnInit(): void {
+    this.onGetToyota()
+   }
 
-    this.api.createItem(this.itemsModuleObj).subscribe(res => {
-      console.log(res);
-      alert('Item added sucessfully')
-      let cle = document.getElementById('cancel')
-      cle?.click();
-      this.formValue.reset();
-      this.getAllItems();
-    }, err =>{
-      alert('Unsucessful')
-    });
-  }
+   onGetToyota(): void{
+     this.sharedServices.getItems().subscribe({
+     next: (response: toyotaModel[]) => {this.toyotas = response;},
+     error: (error: HttpErrorResponse) => {alert(error.message)},
+     complete: () => console.log('Get transaction completed')
+     });
+   }
 
-  getAllItems(){
-    this.api.getItems().subscribe(res =>{
-    this.itemsData= res;
-    })
-  }
+   onAddToyota(addForm:NgForm): void{
+     document.getElementById('add-toyota')?.click();
+     this.sharedServices.createItem(addForm.value).subscribe({
+     next: (response:toyotaModel) => {console.log(response); this.onGetToyota(); addForm.resetForm()},
+     error: (error: HttpErrorResponse) => {alert(error.message); addForm.reset},
+     complete: () => console.log('Add transaction completed')
+     });
+    }
 
-  deleteItemById(item:any){
-    this.api.deleteItem(item.id).subscribe(res =>{
-      alert('Item deleted')
-      this.getAllItems()
-    })
-  }
+    onUpdateToyota(toyota:toyotaModel): void{
+      this.sharedServices.updateItem(toyota,toyota.id).subscribe({ //porch.id need to be commented out.
+      next: (response: toyotaModel) => {console.log(response); this.onGetToyota()},
+      error: (error: HttpErrorResponse) => {alert(error.message)},
+      complete: () => console.log('Update transaction completed')
+      });
+    } 
 
-  editItemById(item:any){
-    this.showAdd = false;
-    this.showUpdate = true;
-    this.itemsModuleObj.id = item.id;
-    this.formValue.controls['image'].setValue(item.image);
-    this.formValue.controls['name'].setValue(item.name);
-    this.formValue.controls['model'].setValue(item.model);
-    this.formValue.controls['year'].setValue(item.year);
-    this.formValue.controls['dateOfInventory'].setValue(item.dateOfInventory);
-    this.formValue.controls['numberOfCars'].setValue(item.numberOfCars);
-    this.formValue.controls['price'].setValue(item.price);
-    this.formValue.controls['mileage'].setValue(item.mileage);
-    this.formValue.controls['status'].setValue(item.status);
-    this.formValue.controls['color'].setValue(item.color);
-  }
+    onDeleteToyota(toyotaId:number): void{
+      this.sharedServices.deleteItem(toyotaId).subscribe({
+      next: (response: void) => {console.log(response); this.onGetToyota()},
+      error: (error: HttpErrorResponse) => {alert(error.message)},
+      complete: () => console.log('Delete transaction completed')
+      });
+    }  
 
-  updateItem(){
-    this.itemsModuleObj.image = this.formValue.value.image;
-    this.itemsModuleObj.name = this.formValue.value.name;
-    this.itemsModuleObj.model = this.formValue.value.model;
-    this.itemsModuleObj.year = this.formValue.value.year;
-    this.itemsModuleObj.dateOfInventory = this.formValue.value.dateOfInventory;
-    this.itemsModuleObj.numberOfCars = this.formValue.value.numberOfCars;
-    this.itemsModuleObj.price = this.formValue.value.price;
-    this.itemsModuleObj.mileage = this.formValue.value.mileage;
-    this.itemsModuleObj.status = this.formValue.value.status;
-    this.itemsModuleObj.color = this.formValue.value.color;
+    public searchToyota(key: string): void{
+      console.log(key);
+      const results: toyotaModel[] = [];
+      for(const toyota of this.toyotas){
+        if(toyota.color.toLocaleLowerCase().indexOf(key.toLocaleLowerCase()) !== -1 ||
+        toyota.model.toLocaleLowerCase().indexOf(key.toLocaleLowerCase()) !== -1 ||
+        toyota.status.toLocaleLowerCase().indexOf(key.toLocaleLowerCase()) !== -1 ||
+        toyota.year.toLocaleLowerCase().indexOf(key.toLocaleLowerCase()) !== -1){
+            results.push(toyota);
+           }
+      }
+      this.toyotas = results;
+      if(results.length === 0 || !key){
+        this.onGetToyota();
+      }
+    }
+      
+    public onOpenModal(toyota:toyotaModel, mode: string){
+      const container = document.getElementById('main-container');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.style.display = 'none';
+      button.setAttribute('data-toggle', 'modal');
+      
+      if(mode === 'add'){
+        button.setAttribute('data-target', '#addToyotaModal');
+      }
+      if(mode === 'edit'){
+        this.editItem = toyota;
+        button.setAttribute('data-target', '#updateToyotaModal');
+      }
+      if(mode === 'delete'){
+        this.deleteToyota = toyota;
+        button.setAttribute('data-target', '#deleteToyotaModal');
+      }
+      container!.appendChild(button);
+      
+      button.click();
+    }
 
-    this.api.updateItem(this.itemsModuleObj,this.itemsModuleObj.id)
-    .subscribe(res =>{
-      alert('Update sucessful');
-      let cle = document.getElementById('cancel')
-      cle?.click();
-      this.formValue.reset();
-      this.getAllItems();
-      }, err =>{
-      alert('Unsucessful')
-    });
-  }
+    
+    // calculateTotal():any{
+    //   let x =9;
+    //   let y = 9;
+    //   let m =x*y;
+    //   const numberOfItem = this.total.numberOfCars;
+    //   const price = this.total.price;
+    //   const myTotal = price * numberOfItem;
+    //   console.log(m);
+    // }
+    
 }

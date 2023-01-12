@@ -1,10 +1,9 @@
 export interface Mercedes{
     id: number;
-    image: any; 
-    //name: string;
+    image: string; 
     model: string;
     year: string;
-    dateOfInventory: Date;
+    dateOfInventory: string;
     numberOfCars: number;
     price: number;
     mileage: number;

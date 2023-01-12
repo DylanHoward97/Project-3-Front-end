@@ -1,7 +1,6 @@
 export interface Dodge{
     id: number;
     image: any; 
-    //name: string;
     model: string;
     year: string;
     dateOfInventory: Date;

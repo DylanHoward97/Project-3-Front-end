@@ -1,10 +1,9 @@
 export interface Honda{
     id: number;
     image: any; 
-    //name: string;
-    model: string;
+    model: string ;
     year: string;
-    dateOfInventory: Date;
+    dateOfInventory: string;
     numberOfCars: number;
     price: number;
     mileage: number;
