@@ -14,28 +14,28 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.css']
 })
 
-export class RegistrationComponent implements OnInit {
+// export class RegistrationComponent implements OnInit {
 
-  registrations!: Registration[];
-  updateUser?:Registration;
+//   registrations!: Registration[];
+//   updateUser?:Registration;
 
-  constructor(private sharedServices: SharedService){}
+//   constructor(private sharedServices: SharedService){}
 
-  ngOnInit(): void {
+//   ngOnInit(): void {
       
-  }
+//   }
 
-  onGetUser(): void{
-    this.sharedServices.getUser().subscribe({
-      next: (response: Registration[]) => {this.registrations = response;},
-      error: (error: HttpErrorResponse) => {alert(error.message)},
-      complete: () => console.log('Get transaction complete')
-    })
-  }
+//   onGetUser(): void{
+//     this.sharedServices.getUser().subscribe({
+//       next: (response: Registration[]) => {this.registrations = response;},
+//       error: (error: HttpErrorResponse) => {alert(error.message)},
+//       complete: () => console.log('Get transaction complete')
+//     })
+//   }
 
-  onAddUser(addForm:NgForm):void{
+//   onAddUser(addForm:NgForm):void{
     
-  }
+//   }
 
 
 export class RegistrationComponent implements OnInit {
