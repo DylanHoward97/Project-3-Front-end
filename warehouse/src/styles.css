@@ -91,7 +91,7 @@ tr{
     padding: 4px;
     padding-left: 8px;
     padding-right: 8px;
-    width: 90px;
+    width: 120px;
     margin-left: 10px;
 }
 
@@ -184,6 +184,20 @@ button{
   width: 350px;
 }
 
+.navbar-toggler{
+  width: 120px;
+}
+
+#menuColor{
+  color: white;
+}
+
+.navbar-brand{
+  font-weight: 800;
+  font-style: italic;
+  font-size: xx-large;
+  padding: 0px;
+}
 
 
 
