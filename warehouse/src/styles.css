@@ -2,7 +2,7 @@
 @import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
 
 body{
-    margin-top:20px;
+    margin-top:0px;
     background: #f5f5f5;
 }
 .card {
@@ -86,18 +86,22 @@ tr{
 }
 
 #addStyle{
-    border-radius: 4px;
-    background-color: #007bff;
+    border-radius: 5px;
     color: white;
-    padding: 5px;
+    padding: 4px;
     padding-left: 8px;
     padding-right: 8px;
+    width: 90px;
+    margin-left: 10px;
+}
+
+.nav-item{
+  width: 800px;
 }
 
 .navbar{
-    width: 97%;
-    margin: auto;
-    border-radius: 5px;
+    width: 100%;   
+  
 }
 
 .tracker{
@@ -118,7 +122,7 @@ tr{
     min-width: 400px;
     max-width: 900px;
     padding: 0px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: .5px;
 }
 
@@ -156,6 +160,30 @@ button{
     color: #007bff;
     font-weight: 500
 }
+
+.sideButton{
+  color: white;
+  
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 170px;
+}
+
+.fbottom{
+  position: fixed;
+    bottom: 20px;
+    margin-left: 70px;
+}
+
+#offcanvasDarkNavbar{
+  max-width: 230px;
+  margin-top: 55px;
+}
+
+#searchName{
+  width: 350px;
+}
+
 
 
 

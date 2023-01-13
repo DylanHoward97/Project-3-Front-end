@@ -1,14 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" style="color:white;">Dodge Warehouse</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarColor02">
-       <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-             <button class="nav-link animated-button1 hvr-grow" (click)="onOpenModal(null!, 'add')" id="addStyle"><span></span><span></span><span></span><span></span>Add Dodge <span class="sr-only">(current)</span></button>
-          </li>
-       </ul>
+<nav class="navbar navbar-dark bg-dark">
+
+   <div>
+      <button type="button" class="navbar-toggler animated-button1 hvr-grow p-2 m-0 b-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"><span></span><span></span><span></span><span></span>MENU</button>
+   
+      <button class="nav-link animated-button1 hvr-grow" (click)="onOpenModal(null!, 'add')" id="addStyle"><span></span><span></span><span></span><span></span>Add <span class="sr-only">(current)</span></button>
+   </div>
+
+    <a class="navbar-brand" style="color:white;">Baltimore Dodge</a>
+    
+    <div id="navbarColor02">
+       
        <form class="form-inline my-2 my-lg-0">
          <input type="search" (ngModelChange)="searchDodge(key?.value)" #key="ngModel" ngModel
           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search item..." required>
