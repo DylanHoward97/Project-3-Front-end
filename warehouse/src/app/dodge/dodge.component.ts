@@ -39,7 +39,7 @@ export class DodgeComponent implements OnInit{
     }
 
     onUpdateDodge(dodge:Dodge): void{
-      this.sharedServices.updateDodge(dodge,dodge.id).subscribe({ //porch.id need to be commented out.
+      this.sharedServices.updateDodge(dodge).subscribe({
       next: (response: Dodge) => {console.log(response); this.onGetDodge()},
       error: (error: HttpErrorResponse) => {alert(error.message)},
       complete: () => console.log('Update transaction completed')

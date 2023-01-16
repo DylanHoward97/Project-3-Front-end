@@ -39,7 +39,7 @@ export class MercedesComponent implements OnInit{
     }
 
     onUpdateMercedes(mercedes:Mercedes): void{
-      this.sharedServices.updateMercedes(mercedes,mercedes.id).subscribe({ //porch.id need to be commented out.
+      this.sharedServices.updateMercedes(mercedes).subscribe({
       next: (response: Mercedes) => {console.log(response); this.onGetMercedes()},
       error: (error: HttpErrorResponse) => {alert(error.message)},
       complete: () => console.log('Update transaction completed')
