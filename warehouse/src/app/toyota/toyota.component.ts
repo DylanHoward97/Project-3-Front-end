@@ -14,6 +14,7 @@ export class ToyotaComponent implements OnInit{
   toyotas!: toyotaModel[];
   editItem?:toyotaModel;
   deleteToyota!:toyotaModel;
+  total = [];
 
    constructor ( private sharedServices: SharedService){}
 
@@ -26,7 +27,7 @@ export class ToyotaComponent implements OnInit{
      next: (response: toyotaModel[]) => {this.toyotas = response;},
      error: (error: HttpErrorResponse) => {alert(error.message)},
      complete: () => console.log('Get transaction completed')
-     });
+     }); 
    }
 
    onAddToyota(addForm:NgForm): void{

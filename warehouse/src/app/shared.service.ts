@@ -16,7 +16,7 @@ import { Registration } from './registration/registration';
 export class SharedService {
   private apiServerUrl = "http://localhost:8080";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } 
 
 
   getItems(): Observable<toyotaModel[]>{
