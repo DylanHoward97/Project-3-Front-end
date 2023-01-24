@@ -575,3 +575,17 @@ button{
               transform: translateY(100%);
     }
   }
+
+  button:disabled,
+  button[disabled]{
+    border: 1px solid red;
+    text-decoration-color: red;
+    text-decoration: line-through;
+}
+
+#cap{
+  font-style: italic;
+  color: white;
+  margin-left: 0px;
+  vertical-align: middle;
+}
