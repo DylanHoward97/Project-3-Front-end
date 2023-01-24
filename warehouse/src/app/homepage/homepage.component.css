@@ -1,12 +1,20 @@
 .main{
-    background-image: url('https://4kwallpapers.com/images/wallpapers/dark-background-abstract-background-network-3d-background-1920x1080-8324.png');
+    background-image: url('https://thumbs.dreamstime.com/b/modern-simple-underground-realistic-light-glowing-cement-concrete-dark-room-hangar-parking-car-showroom-tiled-floor-background-208926304.jpg');
     width: 100%;
-    height: auto;
-    background-size: 100% 100%;
-    /* background-repeat: no-repeat; */
+    height: 5%;
+    background-size: 50% 100%;
+    
+    /* background-repeat: no-repeat; */   
 }
+
+
+
+  
+  
+
 
 .bxshadow{
     
     /* border: 8px solid; border-image: linear-gradient(90deg, rgba(60,74,83,0.90), rgba(60,74,83,.00)) 1; border-left:none; border-top:none; border-right:none; */
 }
+

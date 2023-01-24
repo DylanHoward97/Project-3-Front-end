@@ -74,6 +74,7 @@ tr{
 .container{
     max-width: 98%;
     margin: auto;
+    
 }
 
 .col-md-6{
@@ -128,11 +129,17 @@ tr{
 
 
 
-.logo{
+/* .logo{
     border-radius: 50%;
     width: 100%;
     height: auto;
     height: 160px;
+} */
+
+.logo{
+  border-radius: 12%;
+  width: 100%;
+  height: 160px;
 }
 
 .style{
@@ -452,7 +459,7 @@ button{
   .animated-button1 {
     background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%);
     padding: 1px;
-    margin: 1px;
+    margin: 25px;
     display: inline-block;
     -webkit-transform: translate(0%, 0%);
             transform: translate(0%, 0%);
@@ -486,6 +493,7 @@ button{
   
   .animated-button1 span {
     position: absolute;
+    
   }
   
   .animated-button1 span:nth-child(1) {
