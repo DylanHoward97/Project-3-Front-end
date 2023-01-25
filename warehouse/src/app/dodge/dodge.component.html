@@ -28,24 +28,24 @@
             <table>
                <tbody class="table-active">
                   <tr >
-                  <td>Model : {{dodge.model}}</td>
-                  <td>Inventory : {{dodge.dateOfInventory}}</td>
+                  <td><span class="infoColor">Model : </span>{{dodge.model}}</td>
+                  <td><span class="infoColor">Inventory :</span> {{dodge.dateOfInventory}}</td>
                   </tr>
                   <tr>
-                  <td>Status : {{dodge.status}}</td>
-                  <td>Amount : {{dodge.numberOfCars}}</td>
+                  <td><span class="infoColor">Status : </span>{{dodge.status}}</td>
+                  <td><span class="infoColor">Amount &nbsp;&nbsp;&nbsp;:</span> {{dodge.numberOfCars}}</td>
                   </tr>
                   <tr>
-                  <td>Color :  {{dodge.color}}</td>
-                  <td>Mileage : {{dodge.mileage}}</td>
+                  <td><span class="infoColor">Color &nbsp;&nbsp;:</span>  {{dodge.color}}</td>
+                  <td><span class="infoColor">Mileage &nbsp;&nbsp;&nbsp;:</span> {{dodge.mileage}}</td>
                   </tr>
                   <tr>
-                  <td>Price : {{dodge.price | currency: 'USD'}}</td>
-                  <td>Year: {{dodge.year}}</td>
+                  <td><span class="infoColor">Price &nbsp;&nbsp;:</span> {{dodge.price | currency: 'USD'}}</td>
+                  <td><span class="infoColor">Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> {{dodge.year}}</td>
                   </tr>
                </tbody>
             </table>
-
+            <div>Total: {{dodge.numberOfCars * dodge.price | currency: 'USD'}}</div>
             <div>
                <div class="float-right btn-group btn-group-sm">
                   <button (click)="onOpenModal(dodge, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit">Edit</button>
