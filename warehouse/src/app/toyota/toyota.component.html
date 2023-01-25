@@ -32,27 +32,26 @@
                 <a href=""><img src="{{toyota?.image}}" alt="{{toyota.model}}" class="img-fluid " id="size"></a>
           </div>
 
-            <table>
-               <tbody class="table-active">
-                  <tr>
-                     <td>Model : {{toyota.model}}</td>
-                     <td>Inventory : {{toyota.dateOfInventory}}</td>
-                  </tr>
-                  <tr>
-                     <td>Status : {{toyota.status}}</td>
-                     <td>Amount : {{toyota.numberOfCars}}</td>
-                  </tr>
-                  <tr>
-                     <td>Color :  {{toyota.color}}</td>
-                     <td>Mileage : {{toyota.mileage}}</td>
-                  </tr>
-                  <tr>
-                     <td>Price : {{toyota.price | currency: 'USD'}}</td>
-                     <td>Year: {{toyota.year}}</td>
-                     <td></td>
-                  </tr>
-               </tbody>
-            </table>
+          <table>
+            <tbody class="table-active">
+               <tr >
+                  <td ><span class="infoColor">Model :</span> {{toyota.model}}</td>
+                  <td><span class="infoColor">Inventory :</span> {{toyota.dateOfInventory}}</td>
+               </tr>
+               <tr>
+                  <td><span class="infoColor">Status :</span> {{toyota.status}}</td>
+                  <td><span class="infoColor">Amount &nbsp;&nbsp;&nbsp;:</span> {{toyota.numberOfCars}}</td>
+               </tr>
+               <tr>
+                  <td><span class="infoColor">Color &nbsp;&nbsp;:</span>  {{toyota.color}}</td>
+                  <td><span class="infoColor">Mileage &nbsp;&nbsp;&nbsp;:</span> {{toyota.mileage}}</td>
+               </tr>
+               <tr>
+                  <td><span class="infoColor">Price &nbsp;&nbsp;:</span> {{toyota.price | currency: 'USD'}}</td>
+                  <td><span class="infoColor">Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> {{toyota.year}}</td>
+               </tr>
+            </tbody>
+         </table>
 
            <div>
              <div class="float-right btn-group btn-group-sm">

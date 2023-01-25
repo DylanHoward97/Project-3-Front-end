@@ -24,26 +24,28 @@
             <div class="size">
                <a href=""><img src="{{porsche?.image}}" alt="{{porsche.model}}" class="img-fluid " id="size"></a>
             </div>
-           <table>
+
+            <table>
                <tbody class="table-active">
                   <tr >
-                     <td>Model : {{porsche.model}}</td>
-                     <td>Inventory : {{porsche.dateOfInventory}}</td>
+                     <td ><span class="infoColor">Model :</span> {{porsche.model}}</td>
+                     <td><span class="infoColor">Inventory :</span> {{porsche.dateOfInventory}}</td>
                   </tr>
                   <tr>
-                     <td>Status : {{porsche.status}}</td>
-                     <td>Amount : {{porsche.numberOfCars}}</td>
+                     <td><span class="infoColor">Status :</span> {{porsche.status}}</td>
+                     <td><span class="infoColor">Amount &nbsp;&nbsp;&nbsp;:</span> {{porsche.numberOfCars}}</td>
                   </tr>
                   <tr>
-                     <td>Color :  {{porsche.color}}</td>
-                     <td>Mileage : {{porsche.mileage}}</td>
+                     <td><span class="infoColor">Color &nbsp;&nbsp;:</span>  {{porsche.color}}</td>
+                     <td><span class="infoColor">Mileage &nbsp;&nbsp;&nbsp;:</span> {{porsche.mileage}}</td>
                   </tr>
                   <tr>
-                     <td>Price : {{porsche.price | currency: 'USD'}}</td>
-                     <td>Year: {{porsche.year}}</td>
+                     <td><span class="infoColor">Price &nbsp;&nbsp;:</span> {{porsche.price | currency: 'USD'}}</td>
+                     <td><span class="infoColor">Year&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> {{porsche.year}}</td>
                   </tr>
                </tbody>
             </table>
+
             <div>
               <div class="float-right btn-group btn-group-sm">
                  <button (click)="onOpenModal(porsche, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit">Edit</button>
