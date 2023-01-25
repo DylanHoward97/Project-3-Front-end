@@ -3,7 +3,7 @@
    <div>
       <button type="button" class="navbar-toggler animated-button1 hvr-grow p-2 m-0 b-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" id="menuColor"><span></span><span></span><span></span><span></span>MENU</button>
    
-      <button class="nav-link animated-button1 hvr-grow" (click)="onOpenModal(null!, 'add')" id="addStyle"> <span></span><span></span><span></span><span></span>Add Car <span class="sr-only" >(current)</span></button>
+      <button [disabled]="ferraris.length == 10" class="nav-link animated-button1 hvr-grow" (click)="onOpenModal(null!, 'add')" id="addStyle"> <span></span><span></span><span></span><span></span>Add Car <span class="sr-only" >(current)</span></button>
    </div>
 
     <a class="navbar-brand" style="color:white;">Miami Ferrari</a>
@@ -15,6 +15,8 @@
        </form>
      </div>
   </nav>
+
+  <p id="cap">Capacity: {{ferraris.length}}/10</p>
 
 
   <div class="container" id="main-container">
@@ -133,7 +135,7 @@
            </div>
            <div class="modal-footer">
               <button type="button" id="add-ferrari" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Add</button>
+              <button [disabled]="addForm.invalid || ferraris.length == 10" type="submit" class="btn btn-primary" >Add</button>
            </div>
            </form>
         </div>

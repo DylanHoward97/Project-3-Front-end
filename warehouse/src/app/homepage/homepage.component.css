@@ -1,3 +1,10 @@
+/* body{
+    position: fixed;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+} */
+
 .main{
     background-image: url('https://thumbs.dreamstime.com/b/modern-simple-underground-realistic-light-glowing-cement-concrete-dark-room-hangar-parking-car-showroom-tiled-floor-background-208926304.jpg');
     width: 100%;
@@ -17,4 +24,3 @@
     
     /* border: 8px solid; border-image: linear-gradient(90deg, rgba(60,74,83,0.90), rgba(60,74,83,.00)) 1; border-left:none; border-top:none; border-right:none; */
 }
-
