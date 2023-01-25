@@ -1,3 +1,4 @@
+<!-- Ferrari navbar -->
 <nav class="navbar navbar-dark bg-dark">
 
    <div>
@@ -14,9 +15,10 @@
       </form>
    </div>
 </nav>
-
+<!-- Display ferrari warehouse capacity -->
    <p id="cap">Capacity: {{ferraris.length}}/10</p>
 
+<!-- Display each card with it's attributes -->
 <div class="container" id="main-container">
    <div class="row">
       <div *ngFor="let ferrari of ferraris" class="col-md-6 col-xl-3">
@@ -55,6 +57,7 @@
    </div>
 </div>
 
+<!-- Form for addind new ferrari into inventory -->
 <div class="modal fade" id="addFerrariModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
@@ -149,6 +152,7 @@
    </div>
 </div>
 
+<!-- Form to edit existing item -->
 <div class="modal fade" id="updateFerrariModal" tabindex="-1" role="dialog" aria-labelledby="ferrariEditModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -245,6 +249,7 @@
    </div>
 </div>
 
+<!-- Display message for user to confirm when deleting items -->
 <div class="modal fade" id="deleteFerrariModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -265,6 +270,7 @@
    </div>
 </div>
  
+<!-- Display message when warehouse is empty -->
 <div *ngIf="ferraris?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
    <div class="alert alert-info" role="alert">
       <h4 class="alert-heading">NO FERRARI!</h4>
