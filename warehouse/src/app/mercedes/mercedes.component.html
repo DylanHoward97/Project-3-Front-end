@@ -53,7 +53,7 @@
                   </tr>
                </tbody>
             </table>
-
+            <div>Total: {{mercedes.numberOfCars * mercedes.price | currency: 'USD'}}</div>
              <div>
                <div class="float-right btn-group btn-group-sm">
                   <button (click)="onOpenModal(mercedes, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit">Edit</button>
