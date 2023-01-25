@@ -1,52 +1,52 @@
+<!-- Dodge navbar -->
 <nav class="navbar navbar-dark bg-dark">
-
    <div>
       <button type="button" class="navbar-toggler animated-button1 hvr-grow p-2 m-0 b-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" id="menuColor"><span></span><span></span><span></span><span></span>MENU</button>
-   
       <button [disabled]="dodges.length == 40" class="nav-link animated-button1 hvr-grow" (click)="onOpenModal(null!, 'add')" id="addStyle"><span></span><span></span><span></span><span></span>Add Car <span class="sr-only">(current)</span></button>
    </div>
 
-    <a class="navbar-brand" style="color:white;">Baltimore Dodge</a>
-    
-    <div id="navbarColor02">
-       
-       <form class="form-inline my-2 my-lg-0">
+   <a class="navbar-brand" style="color:white;">Baltimore Dodge</a>
+   
+   <div id="navbarColor02">
+      <form class="form-inline my-2 my-lg-0">
          <input type="search" (ngModelChange)="searchDodge(key?.value)" #key="ngModel" ngModel
-          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search item..." required>
-      </form>
-    </div>
-  </nav>
+          name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search item..." required></form>
+   </div>
+</nav>
 
-  <p id="cap">Capacity: {{dodges.length}}/40</p> 
+<!-- Display dodge warehouse capacity -->
+<p id="cap">Capacity: {{dodges.length}}/40</p> 
 
-  <div class="container" id="main-container">
-    <div class="row">
+<!-- Display each card with it's attributes -->
+<div class="container" id="main-container">
+   <div class="row">
       <div *ngFor="let dodge of dodges" class="col-md-6 col-xl-3">
          <div class="card m-b-30">
             <div class="size">
-                  <a href=""><img src="{{dodge?.image}}" alt="{{dodge.model}}" class="img-fluid " id="size"></a>
+               <a href=""><img src="{{dodge?.image}}" alt="{{dodge.model}}" class="img-fluid " id="size"></a>
             </div>
             <table>
-            <tbody class="table-active">
-               <tr >
-                 <td>Model : {{dodge.model}}</td>
-                 <td>Inventory : {{dodge.dateOfInventory}}</td>
-               </tr>
-               <tr>
-                 <td>Status : {{dodge.status}}</td>
-                 <td>Amount : {{dodge.numberOfCars}}</td>
-               </tr>
-               <tr>
-                 <td>Color :  {{dodge.color}}</td>
-                 <td>Mileage : {{dodge.mileage}}</td>
-               </tr>
-               <tr>
-                 <td>Price : {{dodge.price | currency: 'USD'}}</td>
-                 <td>Year: {{dodge.year}}</td>
-               </tr>
-             </tbody>
+               <tbody class="table-active">
+                  <tr >
+                  <td>Model : {{dodge.model}}</td>
+                  <td>Inventory : {{dodge.dateOfInventory}}</td>
+                  </tr>
+                  <tr>
+                  <td>Status : {{dodge.status}}</td>
+                  <td>Amount : {{dodge.numberOfCars}}</td>
+                  </tr>
+                  <tr>
+                  <td>Color :  {{dodge.color}}</td>
+                  <td>Mileage : {{dodge.mileage}}</td>
+                  </tr>
+                  <tr>
+                  <td>Price : {{dodge.price | currency: 'USD'}}</td>
+                  <td>Year: {{dodge.year}}</td>
+                  </tr>
+               </tbody>
             </table>
-             <div>
+
+            <div>
                <div class="float-right btn-group btn-group-sm">
                   <button (click)="onOpenModal(dodge, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit">Edit</button>
                   <button (click)="onOpenModal(dodge, 'delete')" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete">Delete</button>
@@ -55,95 +55,93 @@
          </div>
       </div>
     </div>
-  </div>
+</div>
 
 
-
+<!-- Form for addind new Dodeg into inventory -->
 <div class="modal fade" id="addDodgeModal" tabindex="-1" role="dialog" aria-labelledby="addEmployeeModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
-     <div class="modal-content">
-        <div class="modal-header">
-           <h5 class="modal-title" id="addEmployeeModalLabel">Add Dodge</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-           </button>
-        </div>
-        <div class="modal-body">
-           <form class="was-validated" #addForm="ngForm" (ngSubmit)="onAddDodge(addForm)">
-            <div class="form-group">
-               <label for="image">Image URL</label>
-               <input type="text" ngModel name="image" class="form-control" id="imageUrl" placeholder="Image URL" required>
-               <p class="invalid-feedback">
-                  Cannot be left empty.
-               </p>
-            </div>
-           <div class="form-group">
-              <label for="model">Model</label>
-              <input type="text" ngModel name="model" class="form-control" id="model" placeholder="Model" minlength="2" maxlength="100" required>
-              <p class="invalid-feedback">
-               Must be between 2 and 100 characters.
-            </p>
-           </div>
-           <div class="form-group">
-              <label for="status">Status</label>
-              <input type="text" ngModel name="status" class="form-control" id="status" placeholder="Status" required>
-              <p class="invalid-feedback">
-               Cannot be left empty.
-            </p>
-           </div>
-           <div class="form-group">
-              <label for="color">Color</label>
-              <input type="text" ngModel name="color" class="form-control" id="color" placeholder="color" required>
-              <p class="invalid-feedback">
-               Cannot be left empty.
-            </p>
-           </div>
-           <div class="form-group">
-              <label for="price">Price</label>
-              <input type="number" ngModel name="price" class="form-control" id="price" placeholder="price" min="0" required>
-              <p class="invalid-feedback">
-               A number from zero+.
-            </p>
-           </div>
-           <div class="form-group">
-              <label for="dateOfInventory">Inventory</label>
-              <input type="date" ngModel name="dateOfInventory" class="form-control" id="dateOfInventory" placeholder="inventory" required>
-              <p class="invalid-feedback">
-               Input valid date (mm/dd/yyyy).
-            </p>
-           </div>
-           <div class="form-group">
-            <label for="numberOfCars">Amount</label>
-            <input type="number" ngModel name="numberOfCars" class="form-control" id="numberOfCars" placeholder="amount" min="1" required>
-            <p class="invalid-feedback">
-               A number from one(1).
-            </p>
-           </div>
-           <div class="form-group">
-            <label for="mileage">Mileage</label>
-            <input type="number" ngModel name="mileage" class="form-control" id="mileage" placeholder="mileage" min="0" required>
-            <p class="invalid-feedback">
-               A number from zero+.
-            </p>
-           </div>
-           <div class="form-group">
-            <label for="year">Year</label>
-            <input type="number" ngModel name="year" class="form-control" id="year" placeholder="year" min="2000" required>
-            <p class="invalid-feedback">
-               Year from 2000.
-            </p>
-           </div>
-           <div class="modal-footer">
-              <button type="button" id="add-dodge" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button [disabled]="addForm.invalid || dodges.length == 40" type="submit" class="btn btn-primary" >Add</button>
-           </div>
-           </form>
-        </div>
-     </div>
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="addEmployeeModalLabel">Add Dodge</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+         </div>
+         <div class="modal-body">
+            <form class="was-validated" #addForm="ngForm" (ngSubmit)="onAddDodge(addForm)">
+               <div class="form-group">
+                  <label for="image">Image URL</label>
+                  <input type="text" ngModel name="image" class="form-control" id="imageUrl" placeholder="Image URL" required>
+                  <p class="invalid-feedback">
+                     Cannot be left empty.
+                  </p>
+               </div>
+               <div class="form-group">
+                  <label for="model">Model</label>
+                  <input type="text" ngModel name="model" class="form-control" id="model" placeholder="Model" minlength="2" maxlength="100" required>
+                  <p class="invalid-feedback">
+                     Must be between 2 and 100 characters.
+                  </p>
+               </div>
+               <div class="form-group">
+                  <label for="status">Status</label>
+                  <input type="text" ngModel name="status" class="form-control" id="status" placeholder="Status" required>
+                  <p class="invalid-feedback">Cannot be left empty.</p>
+               </div>
+               <div class="form-group">
+                  <label for="color">Color</label>
+                  <input type="text" ngModel name="color" class="form-control" id="color" placeholder="color" required>
+                  <p class="invalid-feedback">
+                     Cannot be left empty.
+                  </p>
+               </div>
+               <div class="form-group">
+                  <label for="price">Price</label>
+                  <input type="number" ngModel name="price" class="form-control" id="price" placeholder="price" min="0" required>
+                  <p class="invalid-feedback">
+                     A number from zero+.
+                  </p>
+               </div>
+               <div class="form-group">
+                  <label for="dateOfInventory">Inventory</label>
+                  <input type="date" ngModel name="dateOfInventory" class="form-control" id="dateOfInventory" placeholder="inventory" required>
+                  <p class="invalid-feedback">
+                     Input valid date (mm/dd/yyyy).
+                  </p>
+               </div>
+               <div class="form-group">
+                  <label for="numberOfCars">Amount</label>
+                  <input type="number" ngModel name="numberOfCars" class="form-control" id="numberOfCars" placeholder="amount" min="1" required>
+                  <p class="invalid-feedback">
+                     A number from one(1).
+                  </p>
+               </div>
+               <div class="form-group">
+                  <label for="mileage">Mileage</label>
+                  <input type="number" ngModel name="mileage" class="form-control" id="mileage" placeholder="mileage" min="0" required>
+                  <p class="invalid-feedback">
+                     A number from zero+.
+                  </p>
+               </div>
+               <div class="form-group">
+                  <label for="year">Year</label>
+                  <input type="number" ngModel name="year" class="form-control" id="year" placeholder="year" min="2000" required>
+                  <p class="invalid-feedback">
+                     Year from 2000.
+                  </p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" id="add-dodge" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button [disabled]="addForm.invalid || dodges.length == 40" type="submit" class="btn btn-primary" >Add</button>
+               </div>
+            </form>
+         </div>
+      </div>
    </div>
-   </div>
+</div>
 
-
+<!-- Form to edit existing item -->
 <div class="modal fade" id="updateDodgeModal" tabindex="-1" role="dialog" aria-labelledby="dodgeEditModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -155,7 +153,6 @@
          </div>
          <div class="modal-body">
             <form class="was-validated" #editForm="ngForm">
-
                <input type="hidden" ngModel="{{editItem?.id}}" name="id" class="form-control" id="id" placeholder="ID">
 
                <div class="form-group">
@@ -240,9 +237,9 @@
          </div>
       </div>
    </div>
- </div>
+</div>
 
-
+<!-- Display message for user to confirm when deleting items -->
 <div class="modal fade" id="deleteDodgeModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -261,12 +258,12 @@
          </div>
       </div>
    </div>
- </div>
+</div>
  
- 
- <div *ngIf="dodges?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
- <div class="alert alert-info" role="alert">
-   <h4 class="alert-heading">NO DODGE!</h4>
-   <p>No car in Dodge inventory.</p>
- </div>
- </div>
+<!-- Display message when warehouse is empty -->
+<div *ngIf="dodges?.length == 0" class="col-lg-12 col-md-12 col-xl-12">
+   <div class="alert alert-info" role="alert">
+      <h4 class="alert-heading">NO DODGE!</h4>
+      <p>No car in Dodge inventory.</p>
+   </div>
+</div>

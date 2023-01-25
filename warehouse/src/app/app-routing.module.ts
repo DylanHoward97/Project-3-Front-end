@@ -8,18 +8,8 @@ import { MercedesComponent } from './mercedes/mercedes.component';
 import { PorscheComponent } from './porsche/porsche.component';
 import { ToyotaComponent } from './toyota/toyota.component';
 import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
 import { NavComponent } from './nav/nav.component';
 import { RegistrationComponent } from './registration/registration.component';
-// const routes: Routes = [
-//   {path: 'ferrari', component: FerrariComponent},
-//   {path: 'mercedes', component: MercedesComponent},
-//   {path: 'porsche', component: PorscheComponent},
-//   {path: 'dodge', component: DodgeComponent},
-//   {path: 'honda', component: HondaComponent},
-//   {path: 'toyota', component: ToyotaComponent},
-  
-// ];
 
 
 
@@ -28,7 +18,6 @@ import { RegistrationComponent } from './registration/registration.component';
   imports: [RouterModule.forRoot([
     {path: '', component: LoginComponent},
     {path: 'registration', component: RegistrationComponent},
-    {path: 'header', component: HeaderComponent},
     {path: 'nav', component: NavComponent},
     {path: 'homepage', component: HomepageComponent},
     {path: 'ferrari', component: FerrariComponent},
