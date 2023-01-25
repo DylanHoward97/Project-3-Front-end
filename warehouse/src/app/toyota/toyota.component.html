@@ -2,9 +2,8 @@
    <div>
    <button type="button" class="navbar-toggler animated-button1 hvr-grow p-2 m-0 b-0" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" id="menuColor"><span></span><span></span><span></span><span></span>MENU</button>
 
-  <button [disabled]="toyotas.length == 3" class=" animated-button1 hvr-grow" (click)="onOpenModal(null!, 'add')" id="addStyle"><span></span><span></span><span></span><span></span>Add Car<span class="sr-only">(current)</span></button>
+  <button [disabled]="toyotas.length == 50" class=" animated-button1 hvr-grow" (click)="onOpenModal(null!, 'add')" id="addStyle"><span></span><span></span><span></span><span></span>Add Car<span class="sr-only">(current)</span></button>
 </div>
-  <p id="cap">{{toyotas.length}}/100</p> jxzbxj
   <a class="navbar-brand" style="color:white;">Green-Bay TOYOTA</a>
   <div id="navbarColor02">
    
@@ -15,7 +14,7 @@
   </div>
 </nav>
 
- 
+<p id="cap">Capacity: {{toyotas.length}}/50</p> 
 
 <div class="container" id="main-container">
   <div class="row">
@@ -135,7 +134,7 @@
          </div>
          <div class="modal-footer">
             <button type="button" id="add-toyota" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button [disabled]="addForm.invalid || toyotas.length == 3" type="submit" class="btn btn-primary" >Add</button>
+            <button [disabled]="addForm.invalid || toyotas.length == 50" type="submit" class="btn btn-primary" >Add</button>
          </div>
          </form>
       </div>
