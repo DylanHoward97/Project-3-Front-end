@@ -1,6 +1,7 @@
 .navbar{
     border-radius: 0px;
-    margin: 0px;;
+    margin: 0px;
+    position: fixed;
 }
 
 .navbar-brand{
