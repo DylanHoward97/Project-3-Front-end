@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
 import { Observable} from 'rxjs'
-import { map } from 'rxjs/operators'
 import { toyotaModel } from './toyota/toyota';
 import { Porsche } from './porsche/porsche';
 import { Mercedes } from './mercedes/mercedes';
 import { Honda } from './honda/honda';
 import { Ferrari } from './ferrari/ferrari';
 import { Dodge } from './dodge/dodge';
-import { Registration } from './registration/registration';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-  private apiServerUrl = "http://localhost:8080";
+  private apiServerUrl = "http://localhost:5000";
 
   constructor(private http: HttpClient) { } 
 
@@ -122,18 +120,5 @@ updateDodge(dodge:Dodge):Observable<Dodge>{
 deleteDodge(dodgeId:number):Observable<void>{
  return this.http.delete<void>(`${this.apiServerUrl}/dodge/delete/${dodgeId}`);
 }
-
-//Registration Functions
-// getUser():Observable<Registration[]>{
-//   return this.http.get<Registration[]>(`${this.apiServerUrl}/Registration`)
-//   .pipe(map((response:any)=>{return response}))
-// }
-// registerUser(user:Registration):Observable<Registration>{
-//   return this.http.post<Registration>(`${this.apiServerUrl}/Registration`,user).pipe(map((response:any) =>{return response}))
-// }
-
-// updateUser(user:Registration, id: number):Observable<Registration>{
-//   return this.http.put<Registration>(`${this.apiServerUrl}/Registration/`+id, user).pipe(map((response:any) =>{ return response}))
-// }
   
 }
