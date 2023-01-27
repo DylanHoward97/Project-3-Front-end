@@ -21,9 +21,8 @@
     padding-right: .1em;
     min-width: 1.28571429em;
     max-width: 1.28571429em;
-    /* height: 1.5em; */
     white-space: nowrap;
-    line-height: 1.5em; /*it's working only when you write text with icon*/
+    line-height: 1.5em;
     transition: 0.5s;
     text-decoration: none;
     font-family: arial;
